@@ -1,4 +1,21 @@
+
+# This fork enables egit to be built on Ubuntu 20.04 LTS
+
+At work I am still using U20, and libgit2 
+## required libraries
+
+- libgit2-dev: as below, but U20 has version 0.28.4+dfsg.1-2
+- libfmt-dev: I cannot remember to have installed this on U22 specifically
+  for egit. Have to check again at home.
+
+## changes
+- git_push_options_init not available
+- git_strarray_dispose not available
+
+I replaced those function calls with the precessor methods, see in the commit.
+  
 # egit - Erlang interface to Git
+  
 
 [![build](https://github.com/saleyn/egit/actions/workflows/erlang.yml/badge.svg)](https://github.com/saleyn/egit/actions/workflows/erlang.yml)
 

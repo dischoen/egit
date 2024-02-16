@@ -110,7 +110,7 @@ private:
 
 struct GitStrArray {
   GitStrArray() : m_array{} {}
-  ~GitStrArray() { if (m_array.strings) git_strarray_dispose(&m_array); }
+  ~GitStrArray() { if (m_array.strings) git_strarray_free(&m_array); }
 
   git_strarray*       operator&()        { return &m_array; }
   git_strarray&       operator*()        { return m_array;  }

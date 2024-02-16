@@ -387,9 +387,9 @@ static ERL_NIF_TERM push_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[]
   if (git_remote_lookup(&remote, repo->get(), sremote.c_str()) != GIT_OK) [[unlikely]]
     return make_git_error(env, "Unable to lookup remote");
 
-  git_push_options options;
-  if (git_push_options_init(&options, GIT_PUSH_OPTIONS_VERSION) != GIT_OK) [[unlikely]]
-    return make_git_error(env, "Error initializing push");
+  git_push_options options = GIT_PUSH_OPTIONS_INIT;
+  //if (git_push_options_init(&options, GIT_PUSH_OPTIONS_VERSION) != GIT_OK) [[unlikely]]
+  //  return make_git_error(env, "Error initializing push");
 
   return git_remote_push(remote, &refspecs, &options) == GIT_OK
        ? ATOM_OK : make_git_error(env, "Error pushing to " + sremote);
