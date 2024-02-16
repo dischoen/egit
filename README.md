@@ -1,7 +1,9 @@
 
 # This fork enables egit to be built on Ubuntu 20.04 LTS
 
-At work I am still using U20, and libgit2 
+At work I am still using U20, and libgit2 there seems to be older than
+in upstream.
+
 ## required libraries
 
 - libgit2-dev: as below, but U20 has version 0.28.4+dfsg.1-2
